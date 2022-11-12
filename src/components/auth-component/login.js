@@ -1,18 +1,20 @@
 import { useContext } from 'react';
 import {Alert} from 'react-bootstrap';
 
-import LoginForm from "../forms/login";
-import { ExamContext } from '../App';
+import LoginForm from "../../forms/login";
+import { ExamContext } from '../../App';
+
+import './auth.css';
 
 import { Container } from 'react-bootstrap';
-import Navbarr from './header/navbar';
+import Navbarr from '../header/navbar';
 
 const Login = () => {
     const { alert, handleAlert } = useContext(ExamContext);
 
 
     return(
-        <div>
+        <div className='auth'>
             <Navbarr />
             <Container>
                 <Alert variant={alert.type} show={alert.show} onClose={() => handleAlert(false)} dismissible>

@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import './App.css';
 import Home from './components/home';
-import Signup from './components/signup';
-import Login from './components/login';
-import Navbarr from './components/header/navbar';
+import Signup from './components/auth-component/signup';
+import Login from './components/auth-component/login';
+// import Navbarr from './components/header/navbar';
 
 //  ***********    ADMIN      ***********
 
@@ -30,6 +30,9 @@ import EditQuestion from './components/examiner-component/question-component/edi
 import AssignStudent from './components/examiner-component/student-component/assignStudent';
 import Students from './components/examiner-component/student-component/students';
 import ViewAssignedStudents from './components/examiner-component/student-component/viewAssignedStudents';
+import AllExams from './components/student-component/allExams';
+import Questions from './components/student-component/examQuestion';
+import Instructions from './components/student-component/examInstructions';
 
 export const ExamContext = createContext();
 
@@ -91,6 +94,14 @@ function App() {
           <Route path='/examiner/students' element={<Students />} />
           <Route path='/examiner/exam/:examId/addStudent' element={<AssignStudent />} />
           <Route path='/examiner/exam/:examId/students' element={<ViewAssignedStudents />} />
+
+
+          {/* //  ***********   STUDENT      *********** */}
+
+          <Route path='/student/allExams' element={<AllExams />} />
+          <Route path='/student/exam/:id/:subject/questions' element={<Questions />} />
+          <Route path='/student/exam/:id/:subject/instructions' element={<Instructions />} />
+          
         </Routes>
       </Router>
     </ExamContext.Provider>

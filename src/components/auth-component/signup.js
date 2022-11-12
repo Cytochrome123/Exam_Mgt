@@ -2,9 +2,9 @@ import { useContext } from "react";
 import { Alert } from 'react-bootstrap'
 
 
-import SignupForm from "../forms/signup";
-import { ExamContext } from '../App';
-import Navbarr from "./header/navbar";
+import SignupForm from "../../forms/signup";
+import { ExamContext } from '../../App';
+import Navbarr from "../header/navbar";
 // import Alertt from '../utils/alert';
 
 const Signup = () => {
@@ -26,7 +26,7 @@ const Signup = () => {
     // }
 
     return(
-        <>
+        <div className='auth'>
             <Navbarr />
             <SignupForm handleAlert={handleAlert} />
 
@@ -43,7 +43,7 @@ const Signup = () => {
             </Alert>
 
             {/* <Alertt /> */}
-        </>
+        </div>
     )
 }
 

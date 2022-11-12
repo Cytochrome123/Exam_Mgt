@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import { Form, Button, Alert, Table } from 'react-bootstrap';
-import { propTypes } from 'react-bootstrap/esm/Image';
+// import { propTypes } from 'react-bootstrap/esm/Image';
 
 import { ExamContext } from '../App';
 
@@ -95,8 +95,16 @@ const MultipleChoiceQuestionForm = (props) => {
                     <Form.Select aria-label="Default select example" name='optionType' value={formData.optionType} onChange={handleChange} >
                         <option></option>
                         <option value='single'>Single</option>
-                        <option value='multiple'>Multiple</option>
+                        <option  value='multiple'>Multiple</option>
                     </Form.Select>
+                </Form.Group>
+                <Form.Group className="mb-3" >
+                    <Form.Label>Question Mark</Form.Label>
+                    <Form.Control
+                        type="number"
+                        placeholder='1'
+                        name='questionMark' value={formData.questionMark} onChange={handleChange}
+                    />
                 </Form.Group>
 
                 <Button variant="primary" onClick={() => handleOptionModal(true, formData.optionType)}>

@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import axios from "axios";
 import cookies from 'js-cookie';
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button, Form } from 'react-bootstrap';
 import Navbarr from "../../header/navbar";
 
 
@@ -67,14 +67,38 @@ const ViewQuestions = () => {
 
             {data.questionsList.map(question => (
 
-                <Card className="text-center">
-                    <Card.Header>Featured</Card.Header>
+                <Card className="">
+                    <Card.Header><Card.Title>{question.question}</Card.Title></Card.Header>
                     <Card.Body>
-                        <Card.Title>{question.question}</Card.Title>
+                        {/* <Card.Title>{question.question}</Card.Title> */}
                         <Card.Text>
-                        {question.description} additional content.
-                        </Card.Text>
-                        // options
+                            {question.description} additional content.
+                            // options
+                            {question.optionType === 'single' ? 
+                                question.options.map(option => (
+                                    <Form.Check
+                                        inline
+                                        label={option.value}
+                                        name="group1"
+                                        type='radio'
+                                        id={`inline-}-1`}
+                                        // onClick={() => handleCorrectAnswer(formData.optionType, index)}
+                                    />
+                                )) : 
+                                    question.options.map(option => (
+                                        <Form.Check 
+                                            type='checkbox'
+                                            id={`default-`}
+                                            label={option.value}
+                                            // onClick={() => handleCorrectAnswer(formData.optionType, index)}
+                                        />
+                                    )
+                                )
+                            }
+                            {/* {question.options.map(option => (
+                                <p>{option.value}</p>
+                            ))} */}
+                            </Card.Text>
                         {/* <Button variant="primary">Go somewhere</Button> */}
                     </Card.Body>
                     <Card.Footer className="text-muted">

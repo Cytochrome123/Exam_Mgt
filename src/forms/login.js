@@ -36,7 +36,8 @@ const LoginForm = (props)=>{
     // console.log(history)
         axios({
             method: 'post',
-            url: 'http://localhost:5000/api/login',
+            // url: 'http://localhost:5000/api/login',
+            url: 'https://exam-mgt-server.herokuapp.com/api/login',
             data: formData,
             // withCredentials: true
         })
@@ -53,17 +54,17 @@ const LoginForm = (props)=>{
             } else if(res.data.userType === 'examiner') {
                 navigate('/examiner/course');
             } else {
-                navigate('')
+                navigate('/student/allExams')
             }
         })
         .catch(e => {
             console.log(e);
-            props.handleAlert(false, e.response.data.msg, 'danger');
+            props.handleAlert(false, e.response.data ? e.response.data : e.message, 'danger');
         });
     }
 
     return(
-        <>
+        <div className="form">
             <div>Login form</div>  <Link to='/subAdmin/examiners' >Sub</Link>
 
             <form onSubmit={handleSubmit}>
@@ -72,7 +73,7 @@ const LoginForm = (props)=>{
 
                 <button type='submit'>Submit</button>
             </form>
-        </>
+        </div>
 
     )
 }

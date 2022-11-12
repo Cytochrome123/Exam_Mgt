@@ -71,7 +71,7 @@ const SignupForm = (props)=>{
     }
 
     return (
-        <>
+        <div className="form mt-5">
             <div>Signup form</div>
 
             <form onSubmit={handleSubmit}>
@@ -89,7 +89,7 @@ const SignupForm = (props)=>{
 
                 <button type='submit'>Submit</button>
             </form>
-        </>
+        </div>
 
     )
 }

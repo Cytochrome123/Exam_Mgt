@@ -23,6 +23,8 @@ const NewExamForm = (props) => {
 		duration: '',
     })
 
+    console.log(formData.endTime - formData.startTime)
+
     const { alert, handleAlert } = useContext(ExamContext);
 
     const handleChange = (event) => {
@@ -122,7 +124,21 @@ const NewExamForm = (props) => {
                         <option value={3}>3</option>
                     </Form.Select>
                 </Form.Group>
-
+                <Form.Group className="mb-3" >
+                    <Form.Label>Exam DAte</Form.Label>
+                    {/* <Form.Date aria-label="Default select example" name='negativeMarks' value={formData.negativeMarks} onChange={handleChange} >
+                        
+                    </Form.Date> */}
+                    <input type='date' name='examDate' value={formData.examDate} onChange={handleChange}/>
+                </Form.Group>
+                <Form.Group className="mb-3" >
+                    <Form.Label>Start Time</Form.Label>
+                    <input type='time' name='startTime' value={formData.startTime} onChange={handleChange}/>
+                </Form.Group>
+                <Form.Group className="mb-3" >
+                    <Form.Label>End Time</Form.Label>
+                    <input type='time' name='endTime' value={formData.endTime} onChange={handleChange}/>
+                </Form.Group>
                 <Button variant="secondary" onClick={handleSubmit}>
                     Create
                 </Button>

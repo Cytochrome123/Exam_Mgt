@@ -1,0 +1,14 @@
+.auth {
+    background-image: url('../../../public/OIP_Exam\ mgt.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

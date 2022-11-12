@@ -75,7 +75,7 @@ const Students = () => {
                     <tr>
                         <th>S/N</th>
                         <th>Name</th>
-                        <th>Description</th>
+                        <th>Subject</th>
                         <th>Students n</th>
                         <th>Status</th>
                         <th>Modified date</th>
@@ -87,7 +87,7 @@ const Students = () => {
                         <tr key={index} >
                             <td>{index + 1}</td>
                             <td>{exam.course.name} {exam.course.description} </td>
-                            <td> {exam.description} </td>
+                            <td> {exam.subject} </td>
                             <td></td>
                             <td> {exam.status} </td>
                             <td> {exam.modifiedDate} </td>

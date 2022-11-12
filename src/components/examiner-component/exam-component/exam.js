@@ -86,7 +86,7 @@ const Exam = () => {
                     <tr>
                         <th>S/N</th>
                         <th>Name</th>
-                        <th>Description</th>
+                        <th>Subject(course)</th>
                         <th>Status</th>
                         <th>Created date</th>
                         <th>Actions</th>
@@ -97,7 +97,7 @@ const Exam = () => {
                         <tr key={index} >
                             <td>{index + 1}</td>
                             <td>{exam.course.name} {exam.course.description} </td>
-                            <td> {exam.description} </td>
+                            <td> {exam.subject} </td>
                             <td> {exam.status} </td>
                             <td> {exam.createdDate} </td>
                             <td>

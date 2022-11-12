@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import { Form, Alert } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import axios from 'axios';
 import cookies from 'js-cookie';
@@ -17,6 +17,8 @@ const AddQuestion = () => {
     const {examId} = useParams();
     const [queType, setQueType] = useState({type: ''});
     const { alert, handleAlert } = useContext(ExamContext);
+    
+    const navigate = useNavigate();
 
     const determineQueType = (event) => {
         console.log(event.target.value)
@@ -38,9 +40,10 @@ const AddQuestion = () => {
             
 
         };
+        console.log(finalValues)
         const correctAnswer = optionsList.filter(option => option.answer);
-console.log(finalValues)
-// console.log(JSON.parse(optionsList))
+        console.log(finalValues)
+        // console.log(JSON.parse(optionsList))
         if (correctAnswer.length === 0) {
             handleAlert(true, 'You need to set the correct option before preoceeding!', 'danger');
         } else {
@@ -57,6 +60,7 @@ console.log(finalValues)
             .then(res => {
                 console.log(res);
                 handleAlert(true, res.data.msg, 'success');
+                navigate('/examiner/exam');
             })
             .catch(e => {
                 console.log(e);
@@ -96,7 +100,7 @@ console.log(finalValues)
                     <option value='Google Link'>Google Link</option>
                 </Form.Select>
             </Form.Group>
-            {setQue()}
+            {/* {setQue()} */}
             {/* {if (queType == 'Multiple Choice') {
                 <MultipleChoiceQuestionForm />
             } else if (queType == 'Theory') {
@@ -104,7 +108,7 @@ console.log(finalValues)
             } else {
                 <MultipleChoiceQuestionForm />
             }} */}
-            {queType.type == 'Multiple Choice' ? <MultipleChoiceQuestionForm /> : queType.type == 'Theory' ? <TheoryQuestionForm /> : queType === 'Google Link' ? <LinkQuestionForm /> : <h1>The question type is yet to be selected</h1>}
+            {queType.type == 'Multiple Choice' ? <MultipleChoiceQuestionForm handleSubmit={submitQuestion} /> : queType.type == 'Theory' ? <TheoryQuestionForm /> : queType === 'Google Link' ? <LinkQuestionForm /> : <h1>The question type is yet to be selected</h1>}
 
 
             <Alert variant={alert.type} show={alert.show} onClose={() => handleAlert(false)} dismissible>

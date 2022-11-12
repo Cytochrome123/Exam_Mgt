@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useEffect, useRef, useState, useContext } from "react"
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Card, Button, Form, Alert } from 'react-bootstrap';
 
 import { ExamContext } from '../../App';
@@ -22,12 +22,13 @@ const Questions = () => {
         duration: 0,
         questions: [],
         questionNum: 0,
-        singleOptionChoice: '',
-        multipleOptionChoice: []
+        singleOptionChoice: 'o',
+        multipleOptionChoice: {}
     });
     const { id, subject } = useParams();
     
     const { alert, handleAlert } = useContext(ExamContext);
+    const navigate = useNavigate();
 
     const token = Cookies.get('token');
 
@@ -47,16 +48,23 @@ const Questions = () => {
                 let singleOptChoice = ''
                 if (res.data.existingAnswer) {
                     if (res.data.question.optionType === 'single') {
-                        singleOptChoice = res.data.existingAnswer.answer
+                        singleOptChoice = res.data.existingAnswer.answer[0]
                     }
+                    setDetails(prev => ({
+                        ...prev,
+                        // examId: res.data.assignedExam._id,
+                        questionId: res.data.question._id,
+                        singleOptionChoice: singleOptChoice,
+                        ...res.data.question
+                    }))
+                } else {
+                    setDetails(prev => ({
+                        ...prev,
+                        // examId: res.data.assignedExam._id,
+                        questionId: res.data.question._id,
+                        ...res.data.question
+                    }))
                 }
-                setDetails(prev => ({
-                    ...prev,
-                    examId: res.data.assignedExam._id,
-                    questionId: res.data.question._id,
-                    singleOptionChoice: singleOptChoice,
-                    ...res.data.question
-                }))
             })
             .catch(err => {
                 console.log(err);
@@ -70,7 +78,7 @@ const Questions = () => {
     const nextQue = (questionNum) => {
         axios({
             method: 'get',
-            url: `http://localhost:5000/api/student/exam/${id}/${subject}/questions`,
+            url: `http://localhost:5000/api/student/exam/${id}/${subject}/question`,
             params: {questionNum},
             headers: {
                 'Content-Type': 'application/json',
@@ -79,13 +87,35 @@ const Questions = () => {
         })
         .then(res => {
             console.log(res);
-            setDetails(prev => ({
-                ...prev,
-                exam: res.data.assignedExam._id,
+            // setDetails(prev => ({
+            //     ...prev,
+            //     exam: res.data.assignedExam._id,
                 
-                ...res.data.questions,
-                questionNum
-            }))
+            //     ...res.data.questions,
+            //     questionNum
+            // }))
+            let singleOptChoice = ''
+            if (res.data.existingAnswer) {
+                if (res.data.question.optionType === 'single') {
+                    singleOptChoice = res.data.existingAnswer.answer[0]
+                }
+                setDetails(prev => ({
+                    ...prev,
+                    // examId: res.data.assignedExam._id,
+                    questionId: res.data.question._id,
+                    singleOptionChoice: singleOptChoice,
+                    ...res.data.question,
+                    questionNum
+                }))
+            } else {
+                setDetails(prev => ({
+                    ...prev,
+                    // examId: res.data.assignedExam._id,
+                    questionId: res.data.question._id,
+                    ...res.data.question,
+                    questionNum
+                }))
+            }
         })
         .catch(err => {
             console.log(err)
@@ -100,25 +130,53 @@ const Questions = () => {
                 singleOptionChoice: event.target.value
             }))
         } else {
-            setDetails(prev => ({
-                ...prev,
-                multipleOptionChoice: event.target.value
-            }))
+            if (details.multipleOptionChoice[event.target.name]){
+                setDetails(prev => ({
+                    ...prev,
+                    multipleOptionChoice: {
+                        ...prev.multipleOptionChoice,
+                        [event.target.name]: null
+                    },
+                }))
+            } else {
+
+                setDetails(prev => ({
+                    ...prev,
+                    // multipleOptionChoice: event.target.value
+                    multipleOptionChoice: {
+                        ...prev.multipleOptionChoice,
+                        [event.target.name]: event.target.value
+                    }
+                }))
+            }
         }
     }
 
     const saveAnswer = () => {
-        if (!details.singleOptionChoice) {
+        const { questionId, singleOptionChoice, multipleOptionChoice } = details
+
+        if (!details.singleOptionChoice && !Object.entries(multipleOptionChoice)) {
             let msg = 'Attempt question before saving the answer'
             handleAlert(true, msg, 'danger')
         } else {
-            const { examId, questionId, singleOptionChoice, questionNum } = details
+
+            let allSelectedOptions = [];
+
+            Object.keys(multipleOptionChoice).forEach(key => {
+                if (multipleOptionChoice[key]) {
+                    allSelectedOptions.push(multipleOptionChoice[key]);
+                }
+            })
+
+            console.log(allSelectedOptions)
             const answerObj = {
-                examId,
+                examId: id,
                 questionId,
-                answer: singleOptionChoice,
+                // answer: singleOptionChoice,
+                answer: details.optionType === 'single' ? singleOptionChoice : allSelectedOptions,
                 status: 'ATTEMPTED'
             }
+            console.log(answerObj);
             axios({
                 method: 'post',
                 url: `http://localhost:5000/api/student/exam/${id}/${subject}/question`,
@@ -130,7 +188,7 @@ const Questions = () => {
             })
             .then(res => {
                 handleAlert(true, res.data, 'success')
-                nextQue(questionNum + 1);
+                // nextQue(questionNum + 1);
             })
             .catch(e => {
                 handleAlert(true, e.response.data ? e.response.data : e.message, 'danger');
@@ -149,6 +207,7 @@ const Questions = () => {
         })
         .then(res => {
             console.log(res)
+            navigate('/student/allExams')
         })
         .catch(e => console.log())
     }
@@ -159,38 +218,58 @@ const Questions = () => {
             {details.question ? (
 
             <Card className="text-center">
-                <Card.Header className='mb-5'>{details.question}</Card.Header>
+                <Card.Header className='mb-5'>Question {details.questionNum + 1}</Card.Header>
                 <Card.Body>
                     <Card.Title className='mb-5'>{details.question} {details.description}</Card.Title>
                     <Card.Text>
                         {details.optionType === 'single' ? 
-                            details.options.map(option => (
-                                <Form.Check
-                                    inline
-                                    label={option.value}
-                                    name="singleOptionChoice"
-                                    type='radio'
-                                    id={`inline-}-1`}
-                                    value={option.value}
-                                    // onClick={() => handleCorrectAnswer(formData.optionType, index)}
-                                    onChange={chooseOption}
-                                />
-                            )) : 
-                            details.options.map(option => (
-                                            <Form.Check 
-                                                type='checkbox'
-                                                id={`default-`}
-                                                label={option.value}
-                                                // onClick={() => handleCorrectAnswer(formData.optionType, index)}
-                                            />
-                                        )
-                            )
+                            details.options.map((option, index) => {
+                                // if (!details.singleOptionChoice) {
+
+                                //     if (details.singleOptionChoice === )
+                                // }
+                                // console.log(details.singleOptionChoice === option.value)
+                                // console.log(option)
+                                return (
+
+                                    <Form.Check
+                                        inline
+                                        label={option.value}
+                                        name="singleOptionChoice"
+                                        type='radio'
+                                        id={`inline-}-1`}
+                                        value={option.value}
+                                        // onClick={() => handleCorrectAnswer(formData.optionType, index)}
+                                        onChange={chooseOption}
+                                        checked={details.singleOptionChoice === option.value}
+                                    />
+                                )
+                            }) : 
+                            details.options.map(option => {
+                                // console.log(option)
+                                // console.log(details.multipleOptionChoice[option.key])
+                                // console.log(details.multipleOptionChoice[option.key] === option.value);
+                                // console.log(option.value)
+                                return (
+                                    <Form.Check 
+                                        type='checkbox'
+                                        id={`default-`}
+                                        label={option.value}
+                                        // onClick={() => handleCorrectAnswer(formData.optionType, index)}
+                                        name={option.key}
+                                        value={option.value}
+                                        onChange={chooseOption}
+                                        // checked={details.multipleOptionChoice[option.key]}
+                                        checked={details.multipleOptionChoice[option.key] === option.value}
+                                    />
+                                )
+                            })
                         }
                     </Card.Text>
                     <Button variant="primary" onClick={saveAnswer}>Save</Button>
                 </Card.Body>
                 <Card.Footer className="text-muted">
-                    2 days ago <button onClick={() => nextQue(details.questionNum + 1)}>Next</button>
+                <button onClick={() => nextQue(details.questionNum - 1)}>Previous</button>2 days ago <button onClick={() => nextQue(details.questionNum + 1)}>Next</button>
                     <div><button onClick={submitExam}>Submit</button></div>
                 </Card.Footer>
             </Card>
