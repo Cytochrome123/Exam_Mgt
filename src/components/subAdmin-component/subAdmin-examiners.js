@@ -49,24 +49,24 @@ class SubAdminExaminers extends Component {
         }).catch(e => console.log(e));
     }
 
-    requestNewExaminer = async (event, formData) => {
-        event.preventDefault();
-        const token = cookies.get('token');
-        await axios({
-            method: 'post',
-            url: 'http://localhost:5000/api/subAdmin/examiner/new',
-            data: formData,
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`
-            }
-        })
-        .then(res => {
-            console.log(res);
-            this.examinerData();
-        })
-        .catch(e => console.log(e));
-    }
+    // requestNewExaminer = async (event, formData) => {
+    //     event.preventDefault();
+    //     const token = cookies.get('token');
+    //     await axios({
+    //         method: 'post',
+    //         url: 'http://localhost:5000/api/subAdmin/examiner/new',
+    //         data: formData,
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             Authorization: `Bearer ${token}`
+    //         }
+    //     })
+    //     .then(res => {
+    //         console.log(res);
+    //         this.examinerData();
+    //     })
+    //     .catch(e => console.log(e));
+    // }
 
     deleteExaminer = async (id) => {
         const token = cookies.get('token');
@@ -144,9 +144,10 @@ class SubAdminExaminers extends Component {
                     {/* </div> */}
 
 
-                <RequestExaminerForm
+                {/* <RequestExaminerForm
                     requestNewExaminer={this.requestNewExaminer}
-                />
+                /> */}
+                <RequestExaminerForm />
             </>
         )
     }

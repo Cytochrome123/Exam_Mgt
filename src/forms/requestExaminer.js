@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import axios from 'axios';
+import cookies from 'js-cookie';
 
 const RequestExaminerForm = (props) => {
 
@@ -18,9 +20,27 @@ const RequestExaminerForm = (props) => {
         console.log(formData);
     }
 
+    const requestNewExaminer = async (event, formData) => {
+        event.preventDefault();
+        const token = cookies.get('token');
+        await axios({
+            method: 'post',
+            url: 'http://localhost:5000/api/subAdmin/examiner/new',
+            data: formData,
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
+            }
+        })
+        .then(res => {
+            console.log(res);
+            this.examinerData();
+        })
+        .catch(e => console.log(e));
+    }
 
     return (
-        <form onSubmit={() => props.requestNewExaminer(event, formData)}>
+        <form onSubmit={() => requestNewExaminer(formData)} >
             <input type='text' name='firstName' placeholder='First name' onChange={handleChange} value={formData.firstName} />
             <input type='text' name='lastName' placeholder='Last name' onChange={handleChange} value={formData.lastName} />
             <input type='email' name='email' placeholder="Email" onChange={handleChange} value={formData.email} />
