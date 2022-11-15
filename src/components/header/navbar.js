@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState, Component } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Navbar, Nav, Container, Dropdown } from 'react-bootstrap';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 
 import jwtDecode from 'jwt-decode';
 import cookies from 'js-cookie';

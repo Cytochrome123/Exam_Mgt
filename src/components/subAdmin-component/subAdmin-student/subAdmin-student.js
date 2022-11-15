@@ -1,5 +1,5 @@
-import { useState, useEffect, Component, useRef } from 'react';
-import {Redirect, useNavigate} from 'react-router-dom'
+import { useState, useEffect, useRef } from 'react';
+import { useNavigate} from 'react-router-dom';
 import  { Table }  from 'react-bootstrap';
 
 import cookies from 'js-cookie';

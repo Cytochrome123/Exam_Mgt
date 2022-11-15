@@ -1,12 +1,12 @@
 import Navbar from "./header/navbar"
 
-import jwtDecode from 'jwt-decode';
-import cookies from 'js-cookie';
-import { useEffect } from 'react';
+// import jwtDecode from 'jwt-decode';
+// import cookies from 'js-cookie';
+// import { useEffect } from 'react';
 
 const Home = () => {
 
-    let decoded
+    // let decoded
     // useEffect( () => {
     //     // let cookieData = cookies.getJSON();
 

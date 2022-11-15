@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { Card, Button, Badge } from 'react-bootstrap';
+import { useNavigate } from "react-router-dom";
+// import { Card, Button, Badge } from 'react-bootstrap';
 
 import axios from 'axios';
 import cookies from 'js-cookie';
 
-import Navbarr from '../header/navbar';
+// import Navbarr from '../header/navbar';
 
 const AllExams = () => {
 
@@ -51,7 +51,7 @@ const AllExams = () => {
             })
             .catch(e => {
                 console.log(e)
-                if(e.response.data == 'Unauthorized') navigate('/login')
+                if(e.response.data === 'Unauthorized') navigate('/login')
             })
         }
 

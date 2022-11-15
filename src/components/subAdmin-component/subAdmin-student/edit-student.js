@@ -66,7 +66,7 @@ const EditStudent = () => {
                 ref.current = false;
             }
         }
-    }, [studentDetails]);
+    });
 
     return (
         <div>

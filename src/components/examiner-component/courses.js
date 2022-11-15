@@ -29,7 +29,7 @@ const Courses = () => {
         }
 
         return () => ref.current = false;
-    }, [courses])
+    })
 
     async function courseData() {
         const token = cookies.get('token');

@@ -17,7 +17,7 @@ const CreateExam = () => {
 
     const { alert, handleAlert } = useContext(ExamContext);
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const ref = useRef(true);
 
     useEffect( () => {

@@ -116,7 +116,7 @@ console.log(details)
 
             <Card style={{ width: '18rem' }} className="mb-2" bg='secondary' >
                 <Card.Body>
-                    <Card.Title>{student.firstName} {student.lastName} {student.selected ? <Badge bg='success'>///</Badge> : null } </Card.Title>
+                    <Card.Title>{student.firstName} {student.lastName} {student.selected ? <Badge bg='success'>%</Badge> : null } </Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
                     <Card.Text>
                         <p>{student.studentDetails.gender}</p>

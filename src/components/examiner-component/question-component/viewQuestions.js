@@ -73,7 +73,7 @@ const ViewQuestions = () => {
                         {/* <Card.Title>{question.question}</Card.Title> */}
                         <Card.Text>
                             {question.description} additional content.
-                            // options
+                            {/* options */}
                             {question.optionType === 'single' ? 
                                 question.options.map(option => (
                                     <Form.Check

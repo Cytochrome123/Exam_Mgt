@@ -1,9 +1,9 @@
-import { Component, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import axios from 'axios';
 import cookies from 'js-cookie';
-import { Button, Modal, Form } from 'react-bootstrap';
+import { Button, Modal } from 'react-bootstrap';
 import EditStudentForm from '../../../forms/editStudent';
 import Navbarr from '../../header/navbar';
 
@@ -65,7 +65,7 @@ const EachStudent = () => {
             })
             .catch(e => console.log(e));
         }
-    }, []);
+    });
 
     function handleShow(breakpoint) {
         setFullscreen(breakpoint);

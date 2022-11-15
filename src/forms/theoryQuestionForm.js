@@ -1,5 +1,5 @@
-import { useState, useContext } from 'react';
-import { Form, Button, Alert } from 'react-bootstrap';
+import { useState } from 'react';
+import { Form, Button } from 'react-bootstrap';
 
 const TheoryQuestionForm = () => {
 

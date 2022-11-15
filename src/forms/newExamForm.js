@@ -25,7 +25,7 @@ const NewExamForm = (props) => {
 
     console.log(formData.endTime - formData.startTime)
 
-    const { alert, handleAlert } = useContext(ExamContext);
+    const { handleAlert } = useContext(ExamContext);
 
     const handleChange = (event) => {
         setFormData(prev => ({

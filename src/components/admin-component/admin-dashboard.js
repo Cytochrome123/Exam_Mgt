@@ -19,57 +19,57 @@ const Item = styled(Paper)(({ theme }) => ({
   // display: 'flex'
 }));
 
-const darkTheme = createTheme({ palette: { mode: 'dark' } });
-const lightTheme = createTheme({ palette: { mode: 'light' } });
+// const darkTheme = createTheme({ palette: { mode: 'dark' } });
+// const lightTheme = createTheme({ palette: { mode: 'light' } });
 
 
-const paper = (
-    // <Grid container spacing={2}>
-    //   {[lightTheme, darkTheme].map((theme, index) => (
-    //     <Grid item xs={6} key={index}>
-    //       <ThemeProvider theme={theme}>
-    //         <Box
-    //           sx={{
-    //             p: 2,
-    //             bgcolor: 'background.default',
-    //             display: 'grid',
-    //             gridTemplateColumns: { md: '1fr' },
-    //             gap: 2,
-    //           }}
-    //         >
-    //           {[16].map((elevation) => (
-    //             <Item key={elevation} elevation={elevation}>
-    //               {`elevation=${elevation}`}
-    //             </Item>
-    //           ))}
-    //         </Box>
-    //       </ThemeProvider>
-    //     </Grid>
-    //   ))}
-    // </Grid>
-    <Grid>
-      <Grid item xs={6}>
-        <ThemeProvider theme={lightTheme}>
-          <Box
-            sx={{
-              p: 2,
-              bgcolor: 'background.default',
-              display: 'grid',
-              gridTemplateColumns: { md: '1fr 1fr' },
-              gap: 2,
-            }}
-          >
-            {/* <div className='d-flex'> */}
+// const paper = (
+//     // <Grid container spacing={2}>
+//     //   {[lightTheme, darkTheme].map((theme, index) => (
+//     //     <Grid item xs={6} key={index}>
+//     //       <ThemeProvider theme={theme}>
+//     //         <Box
+//     //           sx={{
+//     //             p: 2,
+//     //             bgcolor: 'background.default',
+//     //             display: 'grid',
+//     //             gridTemplateColumns: { md: '1fr' },
+//     //             gap: 2,
+//     //           }}
+//     //         >
+//     //           {[16].map((elevation) => (
+//     //             <Item key={elevation} elevation={elevation}>
+//     //               {`elevation=${elevation}`}
+//     //             </Item>
+//     //           ))}
+//     //         </Box>
+//     //       </ThemeProvider>
+//     //     </Grid>
+//     //   ))}
+//     // </Grid>
+//     <Grid>
+//       <Grid item xs={6}>
+//         <ThemeProvider theme={lightTheme}>
+//           <Box
+//             sx={{
+//               p: 2,
+//               bgcolor: 'background.default',
+//               display: 'grid',
+//               gridTemplateColumns: { md: '1fr 1fr' },
+//               gap: 2,
+//             }}
+//           >
+//             {/* <div className='d-flex'> */}
 
-            <Item key={16} elevation={16}>
-              {`elevation=${16}`}
-            </Item>
-            {/* </div> */}
-          </Box>
-        </ThemeProvider>
-      </Grid>
-    </Grid>
-)
+//             <Item key={16} elevation={16}>
+//               {`elevation=${16}`}
+//             </Item>
+//             {/* </div> */}
+//           </Box>
+//         </ThemeProvider>
+//       </Grid>
+//     </Grid>
+// )
 
 
 // const AdminDashboard = () => {
