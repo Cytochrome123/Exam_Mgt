@@ -37,7 +37,8 @@ const LoginForm = (props)=>{
         axios({
             method: 'post',
             // url: 'http://localhost:5000/api/login',
-            url: 'https://exam-mgt-server.herokuapp.com/api/login',
+            // url: 'https://exam-mgt-server.herokuapp.com/api/login',
+            url: `${process.env.BASEURL}/login`,
             data: formData,
             // withCredentials: true
         })

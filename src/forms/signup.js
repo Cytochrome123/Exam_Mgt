@@ -21,7 +21,8 @@ const SignupForm = (props)=>{
         if (ref.current) {
             axios({
                 method: 'get',
-                url: 'http://localhost:5000/api/collegeList'
+                // url: 'http://localhost:5000/api'
+                url: `${process.env.BASEURL}/collegeList`,
             })
             .then(res => {
                 console.log(res);

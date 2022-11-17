@@ -33,7 +33,8 @@ const NewCourseModal = (props) => {
         const token = cookies.get('token');
         await axios({
             method: 'get',
-            url: 'http://localhost:5000/api/examiner/default-courses',
+            // url: 'http://localhost:5000/api',
+            url: `${process.env.BASEURL}/examiner/default-courses`,
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`

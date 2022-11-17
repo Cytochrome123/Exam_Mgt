@@ -36,7 +36,8 @@ const EditStudentForm = (props) => {
         const token = cookies.get('token');
         axios({
             method: 'patch',
-            url: `http://localhost:5000/api/subAdmin/student/${props.studentDetails._id}`,
+            // url: `http://localhost:5000/api/subAdmin/student/${props.studentDetails._id}`,
+            url: `${process.env.BASEURL}/subAdmin/student/${props.studentDetails._id}`,
             data: formData,
             headers: {
                 'Content-Type': 'application/json',

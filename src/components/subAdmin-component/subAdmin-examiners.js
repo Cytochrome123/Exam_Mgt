@@ -32,7 +32,8 @@ class SubAdminExaminers extends Component {
         // let token = localStorage.getItem('token')
         await axios({
             method: 'get',
-            url: 'http://localhost:5000/api/subAdmin/examiners',
+            // url: 'http://localhost:5000/api',
+            url: `${process.env.BASEURL}/subAdmin/examiners`,
             withCredentials: true,
             headers: {
                 'Content-Type': 'application/json',
@@ -72,7 +73,8 @@ class SubAdminExaminers extends Component {
         const token = cookies.get('token');
         await axios({
             method: 'delete',
-            url: `http://localhost:5000/api/subAdmin/examiner/${id}`,
+            // url: `http://localhost:5000/api`,
+            url: `${process.env.BASEURL}/subAdmin/examiner/${id}`,
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}` 

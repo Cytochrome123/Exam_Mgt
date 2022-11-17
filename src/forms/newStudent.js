@@ -35,7 +35,8 @@ const NewStudentForm = (props) => {
         const token = cookies.get('token');
         axios({
             method: 'post',
-            url: 'http://localhost:5000/api/subAdmin/student/new',
+            // url: 'http://localhost:5000/api',
+            url: `${process.env.BASEURL}/subAdmin/student/new`,
             data: formData,
             headers: {
                 'Content-Type': 'application/json',

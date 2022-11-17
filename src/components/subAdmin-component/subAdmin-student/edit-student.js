@@ -35,7 +35,8 @@ const EditStudent = () => {
             const token = cookies.get('token');
             axios({
                 method: 'get',
-                url: `http://localhost:5000/api/subAdmin/student/${id}`,
+                // url: `http://localhost:5000/api`,
+                url: `${process.env.BASEURL}/subAdmin/student/${id}`,
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}` 
