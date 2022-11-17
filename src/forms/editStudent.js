@@ -37,7 +37,7 @@ const EditStudentForm = (props) => {
         axios({
             method: 'patch',
             // url: `http://localhost:5000/api/subAdmin/student/${props.studentDetails._id}`,
-            url: `${process.env.BASEURL}/subAdmin/student/${props.studentDetails._id}`,
+            url: `https://exam-mgt-server.herokuapp.com/api/subAdmin/student/${props.studentDetails._id}`,
             data: formData,
             headers: {
                 'Content-Type': 'application/json',
