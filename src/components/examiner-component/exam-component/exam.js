@@ -28,10 +28,11 @@ const Exam = () => {
         if (ref.current) {
 
             const token = cookies.get('token');
+            const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
             axios({
                 method: 'get',
                 // url: 'http://localhost:5000/api',
-                url: `${process.env.BASEURL}/examiner/exam`,
+                url: `${BASEURL}/examiner/exam`,
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`

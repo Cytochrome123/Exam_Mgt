@@ -22,6 +22,7 @@ const AssignStudent = () => {
     const { examId } = useParams();
     
     const token = cookies.get('token');
+    const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
 
     useEffect( () => {
         if (ref.current) {
@@ -29,7 +30,7 @@ const AssignStudent = () => {
             axios({
                 method: 'get',
                 // url: 'http://localhost:5000/api',
-                url: `${process.env.BASEURL}/examiner/students`,
+                url: `${BASEURL}/examiner/students`,
                 params: examId,
                 headers: {
                     'Content-Type': 'application/json',
@@ -92,7 +93,7 @@ console.log(details)
             axios({
                 method: 'post',
                 // url: `http://localhost:5000/api`,
-                url: `${process.env.BASEURL}/examiner/student/assign`,
+                url: `${BASEURL}/examiner/student/assign`,
                 data: {selectedStudents: details.selectedStudents},
                 params: examId,
                 headers: {

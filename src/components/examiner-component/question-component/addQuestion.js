@@ -48,10 +48,11 @@ const AddQuestion = () => {
             handleAlert(true, 'You need to set the correct option before preoceeding!', 'danger');
         } else {
             const token = cookies.get('token');
+            const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
             axios({
                 method: 'post',
                 // url: `http://localhost:5000/api`,
-                url: `${process.env.BASEURL}/examiner/exam/${examId}/question`,
+                url: `${BASEURL}/examiner/exam/${examId}/question`,
                 data: finalValues,
                 headers: {
                     'Content-Type': 'application/json',

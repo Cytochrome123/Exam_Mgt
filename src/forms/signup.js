@@ -17,12 +17,13 @@ const SignupForm = (props)=>{
 
     const ref = useRef(true);
 
+    const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
     useEffect( () => {
         if (ref.current) {
             axios({
                 method: 'get',
                 // url: 'http://localhost:5000/api'
-                url: `${process.env.BASEURL}/collegeList`,
+                url: `${BASEURL}/collegeList`,
             })
             .then(res => {
                 console.log(res);
@@ -58,7 +59,8 @@ const SignupForm = (props)=>{
 
         await axios({
             method: 'post',
-            url: 'http://localhost:5000/api/signup',
+            // url: 'http://localhost:5000/api/signup',
+            url: `${BASEURL}/signup`,
             data: formData
         })
         .then(res => {

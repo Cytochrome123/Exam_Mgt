@@ -23,10 +23,11 @@ const RequestExaminerForm = (props) => {
     const requestNewExaminer = async (event, formData) => {
         event.preventDefault();
         const token = cookies.get('token');
+        const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
         await axios({
             method: 'post',
             // url: 'http://localhost:5000/api',
-            url: `${process.env.BASEURL}/subAdmin/examiner/new`,
+            url: `${BASEURL}/subAdmin/examiner/new`,
             data: formData,
             headers: {
                 'Content-Type': 'application/json',

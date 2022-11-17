@@ -28,12 +28,13 @@ class SubAdminExaminers extends Component {
     examinerData = async () => {
         const token = cookies.get('token');
         console.log(token);
+        const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
         // localStorage.setItem('token');
         // let token = localStorage.getItem('token')
         await axios({
             method: 'get',
             // url: 'http://localhost:5000/api',
-            url: `${process.env.BASEURL}/subAdmin/examiners`,
+            url: `${BASEURL}/subAdmin/examiners`,
             withCredentials: true,
             headers: {
                 'Content-Type': 'application/json',
@@ -71,10 +72,11 @@ class SubAdminExaminers extends Component {
 
     deleteExaminer = async (id) => {
         const token = cookies.get('token');
+        const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
         await axios({
             method: 'delete',
             // url: `http://localhost:5000/api`,
-            url: `${process.env.BASEURL}/subAdmin/examiner/${id}`,
+            url: `${BASEURL}/subAdmin/examiner/${id}`,
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}` 

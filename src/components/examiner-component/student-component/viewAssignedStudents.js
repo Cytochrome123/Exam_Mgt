@@ -28,11 +28,11 @@ const ViewAssignedStudents = () => {
 
     useEffect( () => {
         if (ref.current) {
-
+            const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
             axios({
                 method: 'get',
                 // url: `http://localhost:5000/api`,
-                url: `${process.env.BASEURL}/examiner/exam/${examId}/students`,
+                url: `${BASEURL}/examiner/exam/${examId}/students`,
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`

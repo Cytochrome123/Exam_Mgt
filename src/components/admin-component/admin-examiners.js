@@ -25,10 +25,11 @@ class adminExaminer extends Component {
     }
 
     examinerData = () => {
+        const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
         axios({
             method: 'get',
             // url: 'http://localhost:5000/api'
-            url: `${process.env.BASEURL}/admin/examiner`,
+            url: `${BASEURL}/admin/examiner`,
         })
         .then(res => {
             console.log(res);
@@ -67,10 +68,11 @@ class adminExaminer extends Component {
 
     requestUpdateExaminerStatus = () => {
         const { currentStatus } = this.state
+        const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
         axios({
             method: 'patch',
             // url: 'http://localhost:5000/api',
-            url: `${process.env.BASEURL}/admin/status`,
+            url: `${BASEURL}/admin/status`,
             data: currentStatus
         })
         .then(res => console.log(res)).catch(e => console.log(e));

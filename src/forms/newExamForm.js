@@ -38,10 +38,11 @@ const NewExamForm = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         const token = cookies.get('token');
+        const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
         axios({
             method: 'post',
             // url: 'http://localhost:5000/api/',
-            url: `${process.env.BASEURL}/examiner/exam`,
+            url: `${BASEURL}/examiner/exam`,
             data: formData,
             headers: {
                 'Content-Type': 'application/json',

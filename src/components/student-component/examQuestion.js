@@ -32,12 +32,13 @@ const Questions = () => {
 
     const token = Cookies.get('token');
 
+    const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
     useEffect(() => {
         if(ref.current) {
             axios({
                 method: 'get',
                 // url: `http://localhost:5000/api`,
-                url: `${process.env.BASEURL}/student/exam/${id}/${subject}/question`,
+                url: `${BASEURL}/student/exam/${id}/${subject}/question`,
                 params: {questionNum: details.questionNum},
                 headers: {
                     'Content-Type': 'application/json',
@@ -80,7 +81,7 @@ const Questions = () => {
         axios({
             method: 'get',
             // url: `http://localhost:5000/api`,
-            url: `${process.env.BASEURL}/student/exam/${id}/${subject}/question`,
+            url: `${BASEURL}/student/exam/${id}/${subject}/question`,
             params: {questionNum},
             headers: {
                 'Content-Type': 'application/json',
@@ -182,7 +183,7 @@ const Questions = () => {
             axios({
                 method: 'post',
                 // url: `http://localhost:5000/api`,
-                url: `${process.env.BASEURL}/student/exam/${id}/${subject}/question`,
+                url: `${BASEURL}/student/exam/${id}/${subject}/question`,
                 data: answerObj,
                 headers: {
                     'Content-Type': 'application/json',
@@ -203,7 +204,7 @@ const Questions = () => {
         axios({
             method: 'put',
             // url: `http://localhost:5000/api`,
-            url: `${process.env.BASEURL}/student/exam/${id}/submit`,
+            url: `${BASEURL}/student/exam/${id}/submit`,
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`

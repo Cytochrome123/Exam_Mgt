@@ -33,10 +33,11 @@ const NewStudentForm = (props) => {
     const addNewStudent = (event) => {
         event.preventDefault();
         const token = cookies.get('token');
+        const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
         axios({
             method: 'post',
             // url: 'http://localhost:5000/api',
-            url: `${process.env.BASEURL}/subAdmin/student/new`,
+            url: `${BASEURL}/subAdmin/student/new`,
             data: formData,
             headers: {
                 'Content-Type': 'application/json',

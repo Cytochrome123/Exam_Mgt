@@ -96,10 +96,11 @@ class AdminDashboard extends Component {
 
 
   componentDidMount() {
+    const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
     axios({
       method: 'get',
       // url: 'http://localhost:5000/api'
-      url: `${process.env.BASEURL}/admin/dashboard`,
+      url: `${BASEURL}/admin/dashboard`,
     })
     .then(res => console.log(res))
     .catch(e => console.log(e))

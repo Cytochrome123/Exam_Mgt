@@ -34,14 +34,13 @@ const LoginForm = (props)=>{
         //     password: '',
         // })
     // console.log(history)
-    console.log(process.env.BASEURL)
-    const base = 'https://exam-mgt-server.herokuapp.com/api'
-    console.log(`${base}/me`)
+    // console.log(process.env.BASEURL)
+    const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
         axios({
             method: 'post',
             // url: 'http://localhost:5000/api/login',
-            url: 'https://exam-mgt-server.herokuapp.com/api/login',
-            // url: `${process.env.BASEURL}/login`,
+            // url: 'https://exam-mgt-server.herokuapp.com/api/login',
+            url: `${BASEURL}/login`,
             data: formData,
             // withCredentials: true
         })

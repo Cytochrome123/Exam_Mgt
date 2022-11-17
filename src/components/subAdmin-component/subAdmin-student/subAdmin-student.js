@@ -15,6 +15,7 @@ const SubAdminStudents = () => {
 
     const ref = useRef(true);
     const navigate = useNavigate();
+    const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
 
     useEffect( () => {
         if (ref.current) {
@@ -37,7 +38,7 @@ const SubAdminStudents = () => {
                 axios({
                     method: 'get',
                     // url: `http://localhost:5000/api`,
-                    url: `${process.env.BASEURL}/subAdmin/students`,
+                    url: `${BASEURL}/subAdmin/students`,
                     headers: {
                         'Content-Type': 'application/json',
                         Authorization: `Bearer ${token}`
@@ -88,7 +89,7 @@ const SubAdminStudents = () => {
         await axios({
             method: 'delete',
             // url: `http://localhost:5000/api/`,
-            url: `${process.env.BASEURL}/subAdmin/student/${id}`,
+            url: `${BASEURL}/subAdmin/student/${id}`,
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}` 

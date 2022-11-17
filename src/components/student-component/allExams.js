@@ -19,11 +19,11 @@ const AllExams = () => {
 
     useEffect( () => {
         if (ref.current) {
-
+            const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
             axios({
                 method: 'get',
                 // url: 'http://localhost:5000/api',
-                url: `${process.env.BASEURL}/student/exams`,
+                url: `${BASEURL}/student/exams`,
                 // params: examId,
                 headers: {
                     'Content-Type': 'application/json',

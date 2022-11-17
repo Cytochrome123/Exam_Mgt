@@ -19,10 +19,11 @@ class adminSubAdmin extends Component {
     }
 
     subAdminData = () => {
+        const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
         axios({
             method: 'get',
             // url: 'http://localhost:5000/api'
-            url: `${process.env.BASEURL}/admin/subAdmin`,
+            url: `${BASEURL}/admin/subAdmin`,
         })
         .then(res => console.log(res))
         .catch (e => console.log(e));
