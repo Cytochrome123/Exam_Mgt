@@ -36,7 +36,7 @@ const LoginForm = (props)=>{
     // console.log(history)
     console.log(process.env.BASEURL)
     const base = 'https://exam-mgt-server.herokuapp.com/api'
-    console.log(`${base} me`)
+    console.log(`${base}/me`)
         axios({
             method: 'post',
             // url: 'http://localhost:5000/api/login',
