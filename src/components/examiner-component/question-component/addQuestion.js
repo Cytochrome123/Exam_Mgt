@@ -50,7 +50,8 @@ const AddQuestion = () => {
             const token = cookies.get('token');
             axios({
                 method: 'post',
-                url: `http://localhost:5000/api/examiner/exam/${examId}/question`,
+                // url: `http://localhost:5000/api`,
+                url: `${process.env.BASEURL}/examiner/exam/${examId}/question`,
                 data: finalValues,
                 headers: {
                     'Content-Type': 'application/json',

@@ -26,7 +26,8 @@ const CreateExam = () => {
             const token = cookies.get('token');
             axios({
                 method: 'get',
-                url: 'http://localhost:5000/api/examiner/course',
+                // url: 'http://localhost:5000/api',
+                url: `${process.env.BASEURL}/examiner/course`,
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`

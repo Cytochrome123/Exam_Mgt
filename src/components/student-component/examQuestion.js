@@ -36,7 +36,8 @@ const Questions = () => {
         if(ref.current) {
             axios({
                 method: 'get',
-                url: `http://localhost:5000/api/student/exam/${id}/${subject}/question`,
+                // url: `http://localhost:5000/api`,
+                url: `${process.env.BASEURL}/student/exam/${id}/${subject}/question`,
                 params: {questionNum: details.questionNum},
                 headers: {
                     'Content-Type': 'application/json',
@@ -78,7 +79,8 @@ const Questions = () => {
     const nextQue = (questionNum) => {
         axios({
             method: 'get',
-            url: `http://localhost:5000/api/student/exam/${id}/${subject}/question`,
+            // url: `http://localhost:5000/api`,
+            url: `${process.env.BASEURL}/student/exam/${id}/${subject}/question`,
             params: {questionNum},
             headers: {
                 'Content-Type': 'application/json',
@@ -179,7 +181,8 @@ const Questions = () => {
             console.log(answerObj);
             axios({
                 method: 'post',
-                url: `http://localhost:5000/api/student/exam/${id}/${subject}/question`,
+                // url: `http://localhost:5000/api`,
+                url: `${process.env.BASEURL}/student/exam/${id}/${subject}/question`,
                 data: answerObj,
                 headers: {
                     'Content-Type': 'application/json',
@@ -199,7 +202,8 @@ const Questions = () => {
     const submitExam = () => {
         axios({
             method: 'put',
-            url: `http://localhost:5000/api/student/exam/${id}/submit`,
+            // url: `http://localhost:5000/api`,
+            url: `${process.env.BASEURL}/student/exam/${id}/submit`,
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`

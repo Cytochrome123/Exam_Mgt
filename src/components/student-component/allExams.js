@@ -22,7 +22,8 @@ const AllExams = () => {
 
             axios({
                 method: 'get',
-                url: 'http://localhost:5000/api/student/exams',
+                // url: 'http://localhost:5000/api',
+                url: `${process.env.BASEURL}/student/exams`,
                 // params: examId,
                 headers: {
                     'Content-Type': 'application/json',

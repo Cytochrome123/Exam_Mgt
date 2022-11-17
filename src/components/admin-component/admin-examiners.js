@@ -27,7 +27,8 @@ class adminExaminer extends Component {
     examinerData = () => {
         axios({
             method: 'get',
-            url: 'http://localhost:5000/api/admin/examiner'
+            // url: 'http://localhost:5000/api'
+            url: `${process.env.BASEURL}/admin/examiner`,
         })
         .then(res => {
             console.log(res);
@@ -68,7 +69,8 @@ class adminExaminer extends Component {
         const { currentStatus } = this.state
         axios({
             method: 'patch',
-            url: 'http://localhost:5000/api/admin/status',
+            // url: 'http://localhost:5000/api',
+            url: `${process.env.BASEURL}/admin/status`,
             data: currentStatus
         })
         .then(res => console.log(res)).catch(e => console.log(e));

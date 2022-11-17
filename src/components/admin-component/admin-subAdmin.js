@@ -21,7 +21,8 @@ class adminSubAdmin extends Component {
     subAdminData = () => {
         axios({
             method: 'get',
-            url: 'http://localhost:5000/api/admin/subAdmin'
+            // url: 'http://localhost:5000/api'
+            url: `${process.env.BASEURL}/admin/subAdmin`,
         })
         .then(res => console.log(res))
         .catch (e => console.log(e));

@@ -98,7 +98,8 @@ class AdminDashboard extends Component {
   componentDidMount() {
     axios({
       method: 'get',
-      url: 'http://localhost:5000/api/admin/dashboard'
+      // url: 'http://localhost:5000/api'
+      url: `${process.env.BASEURL}/admin/dashboard`,
     })
     .then(res => console.log(res))
     .catch(e => console.log(e))

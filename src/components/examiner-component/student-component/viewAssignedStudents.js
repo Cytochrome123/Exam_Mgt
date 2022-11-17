@@ -31,7 +31,8 @@ const ViewAssignedStudents = () => {
 
             axios({
                 method: 'get',
-                url: `http://localhost:5000/api/examiner/exam/${examId}/students`,
+                // url: `http://localhost:5000/api`,
+                url: `${process.env.BASEURL}/examiner/exam/${examId}/students`,
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`

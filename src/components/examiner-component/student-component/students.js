@@ -29,7 +29,8 @@ const Students = () => {
             const token = cookies.get('token');
             axios({
                 method: 'get',
-                url: 'http://localhost:5000/api/examiner/exam',
+                // url: 'http://localhost:5000/api',
+                url: `${process.env.BASEURL}/examiner/exam`,
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`

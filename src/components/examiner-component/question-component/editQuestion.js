@@ -20,7 +20,8 @@ const EditQuestion = () => {
             const token = cookies.get('token');
             axios({
                 method: 'get',
-                url: `http://localhost:5000/api/examiner/exam/${examId}/question/${id}`,
+                // url: `http://localhost:5000/api`,
+                url: `${process.env.BASEURL}/examiner/exam/${examId}/question/${id}`,
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`

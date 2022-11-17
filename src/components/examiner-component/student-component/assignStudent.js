@@ -28,7 +28,8 @@ const AssignStudent = () => {
 
             axios({
                 method: 'get',
-                url: 'http://localhost:5000/api/examiner/students',
+                // url: 'http://localhost:5000/api',
+                url: `${process.env.BASEURL}/examiner/students`,
                 params: examId,
                 headers: {
                     'Content-Type': 'application/json',
@@ -90,7 +91,8 @@ console.log(details)
         } else {
             axios({
                 method: 'post',
-                url: `http://localhost:5000/api/examiner/student/assign`,
+                // url: `http://localhost:5000/api`,
+                url: `${process.env.BASEURL}/examiner/student/assign`,
                 data: {selectedStudents: details.selectedStudents},
                 params: examId,
                 headers: {
