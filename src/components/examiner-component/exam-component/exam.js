@@ -7,6 +7,7 @@ import axios from 'axios';
 import cookies from 'js-cookie';
 
 import { ExamContext } from '../../../App';
+import { BASEURL } from '../../../App';
 import Navbarr from '../../header/navbar';
 import AddQuestion from '../question-component/addQuestion';
 
@@ -28,7 +29,6 @@ const Exam = () => {
         if (ref.current) {
 
             const token = cookies.get('token');
-            const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
             axios({
                 method: 'get',
                 // url: 'http://localhost:5000/api',

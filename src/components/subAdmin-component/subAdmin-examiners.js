@@ -7,6 +7,7 @@ import cookies from 'js-cookie';
 
 import RequestExaminerForm from '../../forms/requestExaminer';
 import Navbarr from '../header/navbar';
+import { BASEURL } from '../../App';
 
 class SubAdminExaminers extends Component {
     constructor() {
@@ -28,7 +29,6 @@ class SubAdminExaminers extends Component {
     examinerData = async () => {
         const token = cookies.get('token');
         console.log(token);
-        const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
         // localStorage.setItem('token');
         // let token = localStorage.getItem('token')
         await axios({
@@ -72,7 +72,6 @@ class SubAdminExaminers extends Component {
 
     deleteExaminer = async (id) => {
         const token = cookies.get('token');
-        const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
         await axios({
             method: 'delete',
             // url: `http://localhost:5000/api`,

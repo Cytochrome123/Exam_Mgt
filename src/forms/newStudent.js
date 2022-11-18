@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import axios from 'axios';
 import cookies from 'js-cookie';
+import { BASEURL } from "../App";
 
 const NewStudentForm = (props) => {
 
@@ -33,7 +34,6 @@ const NewStudentForm = (props) => {
     const addNewStudent = (event) => {
         event.preventDefault();
         const token = cookies.get('token');
-        const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
         axios({
             method: 'post',
             // url: 'http://localhost:5000/api',

@@ -8,6 +8,7 @@ import axios from 'axios';
 // import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 
 import Navbarr from '../header/navbar';
+import { BASEURL } from '../../App';
 
 
 // const Item = styled(Paper)(({ theme }) => ({
@@ -96,7 +97,6 @@ class AdminDashboard extends Component {
 
 
   componentDidMount() {
-    const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
     axios({
       method: 'get',
       // url: 'http://localhost:5000/api'

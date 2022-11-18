@@ -6,6 +6,7 @@ import cookies from 'js-cookie';
 import { Button, Modal } from 'react-bootstrap';
 import EditStudentForm from '../../../forms/editStudent';
 import Navbarr from '../../header/navbar';
+import { BASEURL } from '../../../App';
 
 const EachStudent = () => {
     const [studentDetails, setStudentDetails] = useState({
@@ -36,7 +37,6 @@ const EachStudent = () => {
             ref.current = false;
             // const { id } = this.props.match.params
             const token = cookies.get('token');
-            const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
             axios({
                 method: 'get',
                 // url: `http://localhost:5000/api`,

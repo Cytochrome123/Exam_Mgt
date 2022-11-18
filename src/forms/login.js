@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
 import cookies from 'js-cookie';
+import { BASEURL } from "../App";
 
 const LoginForm = (props)=>{
 
@@ -33,9 +34,8 @@ const LoginForm = (props)=>{
         //     email: '',
         //     password: '',
         // })
-    // console.log(history)
-    // console.log(process.env.BASEURL)
-    const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
+        // console.log(history)
+        // console.log(process.env.BASEURL)
         axios({
             method: 'post',
             // url: 'http://localhost:5000/api/login',

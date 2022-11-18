@@ -6,6 +6,7 @@ import cookies from 'js-cookie';
 
 import NewCourseModal from '../../utils/modals/newCourseModal';
 import { ExamContext } from '../../App';
+import { BASEURL } from '../../App';
 import Navbarr from '../header/navbar';
 
 
@@ -33,7 +34,6 @@ const Courses = () => {
 
     async function courseData() {
         const token = cookies.get('token');
-        const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
             await axios({
                 method: 'get',
                 // url: 'http://localhost:5000/api',

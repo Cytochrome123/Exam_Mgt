@@ -6,6 +6,7 @@ import axios from 'axios';
 import cookies from 'js-cookie';
 
 import Navbarr from '../../header/navbar';
+import { BASEURL } from '../../../App';
 
 const AssignStudent = () => {
 
@@ -22,7 +23,6 @@ const AssignStudent = () => {
     const { examId } = useParams();
     
     const token = cookies.get('token');
-    const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
 
     useEffect( () => {
         if (ref.current) {

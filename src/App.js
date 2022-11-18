@@ -36,6 +36,8 @@ import Instructions from './components/student-component/examInstructions';
 
 export const ExamContext = createContext();
 
+export const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
+
 function App() {
 
   const [alert, setAlert] = useState({

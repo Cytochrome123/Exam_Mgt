@@ -2,6 +2,7 @@ import { Component } from 'react';
 import axios from 'axios';
 
 import Navbarr from '../header/navbar';
+import { BASEURL } from '../../App';
 
 
 class adminSubAdmin extends Component {
@@ -19,7 +20,6 @@ class adminSubAdmin extends Component {
     }
 
     subAdminData = () => {
-        const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
         axios({
             method: 'get',
             // url: 'http://localhost:5000/api'

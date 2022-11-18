@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import axios from 'axios';
 import cookies from 'js-cookie';
+import { BASEURL } from "../App";
 
 const RequestExaminerForm = (props) => {
 
@@ -23,7 +24,6 @@ const RequestExaminerForm = (props) => {
     const requestNewExaminer = async (event, formData) => {
         event.preventDefault();
         const token = cookies.get('token');
-        const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
         await axios({
             method: 'post',
             // url: 'http://localhost:5000/api',

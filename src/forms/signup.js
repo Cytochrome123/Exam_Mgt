@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
 import axios from 'axios';
+import { BASEURL } from "../App";
 
 const SignupForm = (props)=>{
 
@@ -17,7 +18,6 @@ const SignupForm = (props)=>{
 
     const ref = useRef(true);
 
-    const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
     useEffect( () => {
         if (ref.current) {
             axios({

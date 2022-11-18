@@ -6,6 +6,7 @@ import { Table, Button } from 'react-bootstrap';
 import axios from "axios";
 import cookies from 'js-cookie';
 import Navbarr from "../../header/navbar";
+import { BASEURL } from '../../../App';
 
 
 const ViewAssignedStudents = () => {
@@ -28,7 +29,6 @@ const ViewAssignedStudents = () => {
 
     useEffect( () => {
         if (ref.current) {
-            const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
             axios({
                 method: 'get',
                 // url: `http://localhost:5000/api`,

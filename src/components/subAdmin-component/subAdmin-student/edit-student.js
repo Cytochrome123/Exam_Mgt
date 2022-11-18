@@ -5,6 +5,7 @@ import cookies from 'js-cookie';
 import axios from 'axios';
 import EditStudentForm from "../../../forms/editStudent";
 import Navbarr from "../../header/navbar";
+import { BASEURL } from '../../../App';
 
 const EditStudent = () => {
 
@@ -33,7 +34,6 @@ const EditStudent = () => {
             // const { id } = this.props.match.params
             // const fetchData = ()
             const token = cookies.get('token');
-            const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
             axios({
                 method: 'get',
                 // url: `http://localhost:5000/api`,

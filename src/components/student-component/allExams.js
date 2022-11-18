@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import axios from 'axios';
 import cookies from 'js-cookie';
+import { BASEURL } from "../../App";
 
 // import Navbarr from '../header/navbar';
 
@@ -19,7 +20,6 @@ const AllExams = () => {
 
     useEffect( () => {
         if (ref.current) {
-            const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
             axios({
                 method: 'get',
                 // url: 'http://localhost:5000/api',

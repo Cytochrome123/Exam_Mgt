@@ -4,7 +4,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import cookies from 'js-cookie';
 import { Card, Button, Form } from 'react-bootstrap';
+
 import Navbarr from "../../header/navbar";
+import { BASEURL } from '../../../App';
 
 
 const ViewQuestions = () => {
@@ -27,7 +29,6 @@ const ViewQuestions = () => {
         if (ref.current) {
 
             const token = cookies.get('token');
-            const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
             axios({
                 method: 'get',
                 // url: `http://localhost:5000/api`,

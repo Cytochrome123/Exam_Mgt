@@ -10,6 +10,7 @@ import MultipleChoiceQuestionForm from '../../../forms/multipleChoiceQuestionFor
 import TheoryQuestionForm from '../../../forms/theoryQuestionForm';
 
 import { ExamContext } from '../../../App';
+import { BASEURL } from '../../../App';
 
 
 const AddQuestion = () => {
@@ -48,7 +49,6 @@ const AddQuestion = () => {
             handleAlert(true, 'You need to set the correct option before preoceeding!', 'danger');
         } else {
             const token = cookies.get('token');
-            const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
             axios({
                 method: 'post',
                 // url: `http://localhost:5000/api`,

@@ -6,6 +6,7 @@ import cookies from 'js-cookie';
 import axios from 'axios';
 import NewStudentForm from '../../../forms/newStudent';
 import Navbarr from '../../header/navbar';
+import { BASEURL } from '../../../App';
 
 const SubAdminStudents = () => {
     const [ students, setStudents ] = useState({
@@ -15,7 +16,6 @@ const SubAdminStudents = () => {
 
     const ref = useRef(true);
     const navigate = useNavigate();
-    const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
 
     useEffect( () => {
         if (ref.current) {

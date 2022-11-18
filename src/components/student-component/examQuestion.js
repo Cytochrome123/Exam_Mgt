@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Card, Button, Form, Alert } from 'react-bootstrap';
 
 import { ExamContext } from '../../App';
+import { BASEURL } from "../../App";
 
 
 const Questions = () => {
@@ -32,7 +33,6 @@ const Questions = () => {
 
     const token = Cookies.get('token');
 
-    const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
     useEffect(() => {
         if(ref.current) {
             axios({

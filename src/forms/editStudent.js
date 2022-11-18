@@ -3,6 +3,7 @@ import { Form, InputGroup, Button } from 'react-bootstrap';
 
 import axios from 'axios';
 import cookies from 'js-cookie';
+import { BASEURL } from "../App";
 
 const EditStudentForm = (props) => {
 
@@ -34,7 +35,6 @@ const EditStudentForm = (props) => {
     const updateStudent = (event) => {
         event.preventDefault();
         const token = cookies.get('token');
-        const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
         axios({
             method: 'patch',
             // url: `http://localhost:5000/api/subAdmin/student/${props.studentDetails._id}`,
