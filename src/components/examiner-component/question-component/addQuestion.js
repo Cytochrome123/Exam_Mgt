@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import cookies from 'js-cookie';
 
+import Navbarr from '../../header/navbar.js';
 import LinkQuestionForm from '../../../forms/linkQuestionForm.js';
 import MultipleChoiceQuestionForm from '../../../forms/multipleChoiceQuestionForm';
 import TheoryQuestionForm from '../../../forms/theoryQuestionForm';
@@ -85,6 +86,7 @@ const AddQuestion = () => {
 
     return (
         <>
+            <Navbarr />
             {/* <Form.Group className="mb-3" >
                 <Form.Label>Passing Mark</Form.Label>
                 <Form.Control

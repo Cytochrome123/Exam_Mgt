@@ -36,6 +36,7 @@ import Instructions from './components/student-component/examInstructions';
 
 export const ExamContext = createContext();
 
+// export const BASEURL = 'http://localhost:5000/api';
 export const BASEURL = 'https://exam-mgt-server.herokuapp.com/api'
 
 function App() {

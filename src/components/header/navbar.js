@@ -69,12 +69,31 @@ const Navbarr = () => {
         <Container>
           <Navbar.Brand href="/">Exam Mgt</Navbar.Brand>
           <Nav className="text-right">
-            <Nav.Link href="/">Home</Nav.Link>
             {authenticatedUser.authenticated ? 
                 <Nav.Link href="" onClick={logOutUser}>Logout</Nav.Link> 
                 : <Nav.Link href="/login">Login</Nav.Link>
             }
             <Nav.Link href="/signup">Sign up</Nav.Link>
+
+            {authenticatedUser.role === 'subAdmin' ? (
+                <>
+                    <Nav.Link href="/subAdmin/examiners">Examiners</Nav.Link>
+                    <Nav.Link href="/subAdmin/students">Students</Nav.Link>
+                </>
+            ) : authenticatedUser.role === 'examiner' ? (
+                <>
+                    <Nav.Link href="/examiner/course">Course</Nav.Link>
+                    <Nav.Link href="/examiner/exam">Exam</Nav.Link>
+                    <Nav.Link href="/examiner/students">Students</Nav.Link>
+                </>
+            ) : authenticatedUser.role === 'student' ? (
+                <>
+                    <Nav.Link href="#">Exami</Nav.Link>
+                </>
+            ) : authenticatedUser.role}
+
+            <Nav.Link href="#">{authenticatedUser.firstName}</Nav.Link>
+
           </Nav>
         </Container>
       </Navbar>

@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import cookies from 'js-cookie';
 import { BASEURL } from "../../App";
+import Navbarr from "../header/navbar";
 
 // import Navbarr from '../header/navbar';
 
@@ -69,6 +70,7 @@ const AllExams = () => {
 
     return (
         <div>
+            <Navbarr />
             {exams.map((exam, index) => (
                 <div key={index} onClick={() => openExam(exam.allExams._id, exam.allExams.subject)} style={{cursor: 'pointer'}}>{exam.allExams.subject}</div>
             ))} 

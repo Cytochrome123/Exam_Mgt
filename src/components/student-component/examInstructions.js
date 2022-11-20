@@ -1,4 +1,6 @@
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom";
+
+import Navbarr from "../header/navbar";
 
 const Instructions = () => {
 
@@ -11,7 +13,11 @@ const Instructions = () => {
     }
 
     return (
-        <div>Read through and answer all <br></br> <button onClick={start}>START</button></div>
+        <div>
+
+            <Navbarr />
+            <div>Read through and answer all <br></br> <button onClick={start}>START</button></div>
+        </div>
     )
 }
 

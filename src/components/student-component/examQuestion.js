@@ -6,6 +6,7 @@ import { Card, Button, Form, Alert } from 'react-bootstrap';
 
 import { ExamContext } from '../../App';
 import { BASEURL } from "../../App";
+import Navbarr from "../header/navbar";
 
 
 const Questions = () => {
@@ -219,7 +220,7 @@ const Questions = () => {
 
     return (
         <div>
-            
+            <Navbarr />
             {details.question ? (
 
             <Card className="text-center">
