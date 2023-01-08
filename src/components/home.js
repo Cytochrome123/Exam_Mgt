@@ -10,7 +10,7 @@ const Home = () => {
         firstName: 'TESt',
         lastName: 'Headache',
         phoneNumber: '3456789',
-        email: 'teshead@gmail.com',
+        email: 'testhead@gmail.com',
         password: '12345678',
         'State of Origin': 'Lagos'
     }
