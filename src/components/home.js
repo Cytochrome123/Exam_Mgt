@@ -18,7 +18,7 @@ const Home = () => {
     useEffect( () => {
         axios({
             method: 'post',
-            url: 'https://localhost:5000/api/register',
+            url: 'http://localhost:5000/api/register',
             data
         })
         .then(res => {
