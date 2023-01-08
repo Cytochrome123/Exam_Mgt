@@ -18,7 +18,8 @@ const Home = () => {
     useEffect( () => {
         axios({
             method: 'post',
-            url: 'http://localhost:5000/api/register',
+            // url: 'http://localhost:5000/api/register',
+            url: 'https://shy-plum-swordfish-sari.cyclic.app/api/register',
             data
         })
         .then(res => {
