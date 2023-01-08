@@ -1,21 +1,33 @@
 import Navbar from "./header/navbar"
 
-// import jwtDecode from 'jwt-decode';
+import axios from 'axios';
 // import cookies from 'js-cookie';
-// import { useEffect } from 'react';
+import { useEffect } from 'react';
 
 const Home = () => {
 
+    let data = {
+        firstName: 'TESt',
+        lastName: 'Headache',
+        phoneNumber: '3456789',
+        email: 'teshead@gmail.com',
+        password: '12345678',
+        'State of Origin': 'Lagos'
+    }
     // let decoded
-    // useEffect( () => {
-    //     // let cookieData = cookies.getJSON();
-
-    //     // console.log(cookies.valueOf())
-
-    //     const token = cookies.get('token')
-    //     decoded = jwtDecode(token);
-    //     console.log(decoded)
-    // })
+    useEffect( () => {
+        axios({
+            method: 'post',
+            url: 'https://localhost:5000/api/register',
+            data
+        })
+        .then(res => {
+            console.log(res);
+        })
+        .catch(e => {
+            console.log(e);
+        });
+    })
 
     return (
         <div>
