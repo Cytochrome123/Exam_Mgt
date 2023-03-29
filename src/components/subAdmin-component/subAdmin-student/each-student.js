@@ -101,6 +101,12 @@ const EachStudent = () => {
 }
 
 
+
+export default EachStudent;
+
+
+
+
 // class EachStudent extends Component{
 //     constructor() {
 //         super()
@@ -148,5 +154,3 @@ const EachStudent = () => {
 //         )
 //     }
 // }
-
-export default EachStudent;

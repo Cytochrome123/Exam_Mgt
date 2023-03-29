@@ -90,14 +90,6 @@ const Questions = () => {
             }
         })
         .then(res => {
-            console.log(res);
-            // setDetails(prev => ({
-            //     ...prev,
-            //     exam: res.data.assignedExam._id,
-                
-            //     ...res.data.questions,
-            //     questionNum
-            // }))
             let singleOptChoice = ''
             if (res.data.existingAnswer) {
                 if (res.data.question.optionType === 'single') {
@@ -230,12 +222,6 @@ const Questions = () => {
                     <Card.Text>
                         {details.optionType === 'single' ? 
                             details.options.map((option, index) => {
-                                // if (!details.singleOptionChoice) {
-
-                                //     if (details.singleOptionChoice === )
-                                // }
-                                // console.log(details.singleOptionChoice === option.value)
-                                // console.log(option)
                                 return (
 
                                     <Form.Check
@@ -252,10 +238,6 @@ const Questions = () => {
                                 )
                             }) : 
                             details.options.map(option => {
-                                // console.log(option)
-                                // console.log(details.multipleOptionChoice[option.key])
-                                // console.log(details.multipleOptionChoice[option.key] === option.value);
-                                // console.log(option.value)
                                 return (
                                     <Form.Check 
                                         type='checkbox'

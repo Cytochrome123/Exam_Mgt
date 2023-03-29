@@ -30,16 +30,8 @@ const LoginForm = (props)=>{
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // setFormData({
-        //     email: '',
-        //     password: '',
-        // })
-        // console.log(history)
-        // console.log(process.env.BASEURL)
         axios({
             method: 'post',
-            // url: 'http://localhost:5000/api/login',
-            // url: 'https://exam-mgt-server.herokuapp.com/api/login',
             url: `${BASEURL}/login`,
             data: formData,
             // withCredentials: true

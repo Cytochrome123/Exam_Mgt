@@ -32,23 +32,6 @@ const AllExams = () => {
                 }
             })
             .then(res => {
-                console.log(res);
-                // res.data.allExams.map(all => (
-                //     setExams(prev => ([
-                //         ...prev,
-                //         all
-                //     ]))
-                // ))
-                // res.data.allExams.forEach(all => (
-                //     setExams(prev => ([
-                //         ...prev,
-                //         all
-                //     ]))
-                // ))
-                // setExams(prev => ([
-                //     ...prev,
-                //     res.data.allExams
-                // ]))
                 setExams(res.data.allExams)
             })
             .catch(e => {
@@ -74,30 +57,7 @@ const AllExams = () => {
             {exams.map((exam, index) => (
                 <div key={index} onClick={() => openExam(exam.allExams._id, exam.allExams.subject)} style={{cursor: 'pointer'}}>{exam.allExams.subject}</div>
             ))} 
-            {/* <Card>
-                <Card.Header>
-                    <Nav variant="tabs" defaultActiveKey="#first">
-                    <Nav.Item>
-                        <Nav.Link href="#first">Active</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link href="#link">Link</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link href="#disabled" disabled>
-                        Disabled
-                        </Nav.Link>
-                    </Nav.Item>
-                    </Nav>
-                </Card.Header>
-                <Card.Body>
-                    <Card.Title>Special title treatment</Card.Title>
-                    <Card.Text>
-                    With supporting text below as a natural lead-in to additional content.
-                    </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-            </Card> */}
+            
         </div>
     )
 }

@@ -29,8 +29,7 @@ const AddQuestion = () => {
         }
         
     };
-    console.log(queType)
-    console.log(examId)
+    
     
     const submitQuestion = (formData, optionsList) => {
         const finalValues = {
@@ -42,9 +41,7 @@ const AddQuestion = () => {
             
 
         };
-        console.log(finalValues)
         const correctAnswer = optionsList.filter(option => option.answer);
-        console.log(finalValues)
         // console.log(JSON.parse(optionsList))
         if (correctAnswer.length === 0) {
             handleAlert(true, 'You need to set the correct option before preoceeding!', 'danger');
@@ -87,14 +84,6 @@ const AddQuestion = () => {
     return (
         <>
             <Navbarr />
-            {/* <Form.Group className="mb-3" >
-                <Form.Label>Passing Mark</Form.Label>
-                <Form.Control
-                    type="number"
-                    placeholder="40"
-                    name='passingMarks' value={'formData.passingMarks'} onChange={'handleChange'}
-                />
-            </Form.Group> */}
             <Form.Group className="mb-3" >
                 <Form.Label>Question Type</Form.Label>
                 <Form.Select aria-label="Default select example" name='type' value={queType.type} onChange={determineQueType} >
@@ -105,13 +94,6 @@ const AddQuestion = () => {
                 </Form.Select>
             </Form.Group>
             {/* {setQue()} */}
-            {/* {if (queType == 'Multiple Choice') {
-                <MultipleChoiceQuestionForm />
-            } else if (queType == 'Theory') {
-                <MultipleChoiceQuestionForm />
-            } else {
-                <MultipleChoiceQuestionForm />
-            }} */}
             {queType.type === 'Multiple Choice' ? <MultipleChoiceQuestionForm handleSubmit={submitQuestion} /> : queType.type === 'Theory' ? <TheoryQuestionForm /> : queType === 'Google Link' ? <LinkQuestionForm /> : <h1>The question type is yet to be selected</h1>}
 
 

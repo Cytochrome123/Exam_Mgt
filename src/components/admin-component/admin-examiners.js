@@ -51,17 +51,6 @@ class adminExaminer extends Component {
                 status: newStatus
             }
         })
-        // this.setState(prevState => {
-        //     console.log(prevState)
-        //     return {
-        //         ...prevState,
-        //         [prevState.currentStatus]: {
-        //             [prevState.id]: id,
-        //             [prevState.status]: newStatus
-        //         }
-        //     }
-        // })
-        console.log(this.state.currentStatus)
         // this.requestUpdateExaminerStatus();
         this.examinerData();
     }

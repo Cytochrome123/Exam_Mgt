@@ -100,25 +100,7 @@ class SubAdminExaminers extends Component {
                     {/* <div key={index} > */}
                         {/* <p>{examiner.email}</p>
                         <button onClick={() => this.deleteExaminer(examiner._id) }>Delete</button> */}
-                        {/* <table>
-                            <tr>
-                                <th>S/N</th>
-                                <th>Name</th>
-								<th>Email</th>
-								<th>Status</th>
-								<th>Created date</th>
-								<th>Actions</th>
-                            </tr>
-                            {examinersList?.map((examiner, index) => (
-                                <tr key={index} >
-                                    <td>{index + 1}</td>
-                                    <td>{examiner.firstName} {examiner.lastName} </td>
-                                    <td> {examiner.email} </td>
-                                    <td> {examiner.status} </td>
-                                    <td> {examiner.createdDate} </td>
-                                </tr>
-                            ))}
-                        </table> */}
+                        
 
                         <Table striped bordered hover variant="dark">
                             <thead>

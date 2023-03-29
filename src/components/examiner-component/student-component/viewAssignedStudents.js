@@ -39,7 +39,6 @@ const ViewAssignedStudents = () => {
                 }
             })
             .then(res => {
-                console.log(res);
                 setData(prev => ({
                     ...prev,
                     assignedStudents: res.data.assignedStudents,

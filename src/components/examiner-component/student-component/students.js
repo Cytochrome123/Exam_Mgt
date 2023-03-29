@@ -38,7 +38,6 @@ const Students = () => {
                 }
             })
             .then(res => {
-                console.log(res);
                 handleAlert(true, res.data.msg, 'success');
                 setExams(prev => ({
                     ...prev,
@@ -47,7 +46,6 @@ const Students = () => {
                 }))
             })
             .catch(e => {
-                console.log(e);
                 handleAlert(true, e.response.data ? e.response.data : e.message, 'danger');
             });
         }

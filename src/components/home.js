@@ -18,9 +18,16 @@ const Home = () => {
     useEffect( () => {
         axios({
             method: 'post',
-            // url: 'http://localhost:5000/api/register',
             url: 'https://shy-plum-swordfish-sari.cyclic.app/api/register',
-            data
+            data,
+            headers: {
+                // 'Content-Type': 'application/json',
+                // 'Access-Control-Allow-Origin': '*'
+                // Authorization: `Bearer ${token}`
+                'Content-Type': 'multipart/form-data',
+                'Accept': 'application/json',
+                // Authorization: `Bearer `
+            }
         })
         .then(res => {
             console.log(res);

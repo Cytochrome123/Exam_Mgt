@@ -62,26 +62,7 @@ const SubAdminStudents = () => {
     //         Passing event isn't allowed anym
 
     const viewStudent = async (id) => {
-        // const token = cookies.get('token');
-        // await axios({
-        //     method: 'get',
-        //     url: `http://localhost:5000/api/subAdmin/student/${id}`,
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         Authorization: `Bearer ${token}` 
-        //     }
-        // })
-        // .then(res => {
-        //     console.log(res);
             navigate(`/subAdmin/student/${id}`)
-            // this.studentData();
-            // console.log(this.props.history)
-            // console.log(this.context.history)
-            // this.context.history.push(`/subAdmin/student/${id}`);
-            // let nex = `/subAdmin/student/${id}`
-            // <Redirect to="/" />
-        // })
-        // .catch(e => console.log(e));
     }
 
     const deleteStudent = async (id) => {
@@ -137,13 +118,6 @@ const SubAdminStudents = () => {
                 </tbody>
             </Table>
 
-            {/* {students.studentList.map((student,index) => (
-                <div key={index}>
-                    <p>{ student.email }</p>
-                    <button onClick={() => viewStudent(student._id)} >View</button>
-                    <button onClick={() => deleteStudent(student.studentData._id)} >Delete</button>
-                </div>
-            ))} */}
             <NewStudentForm 
                 studentsData = {studentsData}
             />
@@ -151,121 +125,6 @@ const SubAdminStudents = () => {
     )
 }
 
-// class SubAdminStudents extends Component{
-//     constructor() {
-//         super();
-//         this.state = {
-//             totalStudents: 0,
-//             studentList: []
-//         }
-        
-//     }
-// // console.log(props)
-//     componentDidMount() {
-//         // this.studentData();
-//         console.log(this.props)
-//     }
 
-//     studentData() {
-//         const token = cookies.get('token');
-//         axios({
-//             method: 'get',
-//             url: `http://localhost:5000/api/subAdmin/students`,
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 Authorization: `Bearer ${token}`
-//             }
-//         })
-//         .then(res => {
-//             console.log(res);
-//             this.setState({
-//                 totalStudents: res.data.studentCount,
-//                 studentList:  res.data.studentsList
-//             })
-//             console.log(this.state)
-//         })
-//         .catch(e => console.log(e));
-//     }
-
-//     // addNewStudent = (event, formData) => {
-//     //     event.preventDefault();
-//     //     const token = cookies.get('token');
-//     //     axios({
-//     //         method: 'post',
-//     //         url: 'http://localhost:5000/api/subAdmin/student/new',
-//     //         data: formData,
-//     //         headers: {
-//     //             'Content-Type': 'application/json',
-//     //             Authorization: `Bearer ${token}`
-//     //         }
-//     //     })
-//     //     .then(res => {
-//     //         console.log(res);
-//     //         this.studentData();
-//     //     })
-//     //     .catch(e => console.log(e));
-//     // }
-
-//     viewStudent = async (studentId) => {
-//         // const token = cookies.get('token');
-//         // await axios({
-//         //     method: 'get',
-//         //     url: `http://localhost:5000/api/subAdmin/student/${studentId}`,
-//         //     headers: {
-//         //         'Content-Type': 'application/json',
-//         //         Authorization: `Bearer ${token}` 
-//         //     }
-//         // })
-//         // .then(res => {
-//         //     console.log(res);
-//         //     this.studentData();
-//         // console.log(this.props.history)
-//         // console.log(this.context.history)
-//         //     this.context.history.push(`/subAdmin/student/${studentId}`);
-//         //     // let nex = `/subAdmin/student/${studentId}`
-//         //     <Redirect to="/" />
-//         // })
-//         // .catch(e => console.log(e));
-//     }
-
-//     deleteStudent = async (studentId) => {
-//         const token = cookies.get('token');
-//         await axios({
-//             method: 'delete',
-//             url: `http://localhost:5000/api/subAdmin/student/${studentId}`,
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 Authorization: `Bearer ${token}` 
-//             }
-//         })
-//         .then(res => {
-//             console.log(res);
-//             this.studentData();
-//         })
-//         .catch(e => console.log(e));
-//     }
-
-//     render() {
-//         const { totalStudents, studentList } = this.state;
-
-//         return (
-//             <div>
-//                 <div>Student ---- {totalStudents} </div>
-
-//                 {studentList.map((student,index) => (
-//                     <div key={index}>
-//                         <p>{ student.email }</p>
-//                         <button onClick={() => this.viewStudent(student.studentData.studentId)} >View</button>
-//                         <button onClick={() => this.deleteStudent(student.studentData.studentId)} >Delete</button>
-//                     </div>
-//                 ))}
-
-//                 <NewStudentForm 
-//                     // createStudent = {this.addNewStudent}
-//                 />
-//             </div>
-//         )
-//     }
-// }
 
 export default SubAdminStudents;

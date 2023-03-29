@@ -30,10 +30,6 @@ const Signup = () => {
             <Navbarr />
             <SignupForm handleAlert={handleAlert} />
 
-
-            {/* {setTimeout(() => {
-                
-            }, 2000)} */}
             
             <Alert variant={alert.type} show={alert.show} onClose={() => handleAlert(false)} dismissible>
                 <Alert.Heading>Oh {alert.type} !</Alert.Heading>

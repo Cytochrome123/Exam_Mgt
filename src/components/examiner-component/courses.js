@@ -14,9 +14,6 @@ import Navbarr from '../header/navbar';
 const Courses = () => {
     
     const [courses, setCourses] = useState({
-        // name: { _id: '', name: '', description: '' },
-        // description: '',
-        // courseId: '',
         courseDetails: [],
         totalCourse: 0
     });
@@ -44,7 +41,6 @@ const Courses = () => {
                 }
             })
             .then(res => {
-                console.log(res);
                 handleAlert(true, res.data.msg, 'success');
                 setCourses(prev => ({
                     ...prev,
@@ -53,7 +49,6 @@ const Courses = () => {
                 }))
             })
             .catch(e => {
-                console.log(e);
                 handleAlert(true, e.response.data ? e.response.data : e.message, 'danger');
             });
     }
@@ -100,69 +95,5 @@ const Courses = () => {
     )
 }
 
-// class Courses extends Component{
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             show: false,
-//             course: {
-// 				name: { _id: '', name: '', description: '' },
-// 				description: '',
-// 				courseId: '',
-// 			},
-//             defaultCourses: []
-//         }
-//     }
-
-//     componentDidMount() {
-//         this.getCourses();
-//     }
-
-//     handleShow = () => this.setState()
-
-//     getCourses = () => {
-//         const token = cookies.get('token');
-//         axios({
-//             method: 'get',
-//             url: 'http://localhost:5000/api/examiner/course',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 Authorization: `Bearer ${token}`
-//             }
-//         })
-//         .then(res => console.log(res))
-//         .catch(e => console.log(e));
-//     }
-
-//     render() {
-//         return (
-//             <div>
-//                 <p>Courses</p>
-
-
-//                 <Button variant="primary" onClick={handleShow}>
-//                     Launch demo modal
-//                 </Button>
-
-//                 <Modal show={show} onHide={handleShow}>
-//                     <Modal.Header closeButton>
-//                     <Modal.Title>Modal heading</Modal.Title>
-//                     </Modal.Header>
-//                     <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-//                     <Modal.Footer>
-//                     <Button variant="secondary" onClick={handleClose}>
-//                         Close
-//                     </Button>
-//                     <Button variant="primary" onClick={handleClose}>
-//                         Save Changes
-//                     </Button>
-//                     </Modal.Footer>
-//                 </Modal>
-//             </div>
-
-            
-//         )
-//     }
-// }
 
 export default Courses;
