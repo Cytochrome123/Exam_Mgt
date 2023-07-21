@@ -69,17 +69,6 @@ const AddQuestion = () => {
         }
         
     }
-    // const setQue = () => {
-    //     if (queType.type === 'Multiple Choice') {
-    //         return <MultipleChoiceQuestionForm handleSubmit={submitQuestion} />
-    //     } else if (queType.type == 'Theory') {
-    //         return <TheoryQuestionForm />
-    //     } else if (queType.type == 'Google Link') {
-    //         return <LinkQuestionForm />
-    //     } else {
-    //         return <h1>The question type is yet to be selected</h1>
-    //     }
-    // }
 
     return (
         <>

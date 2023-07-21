@@ -11,20 +11,6 @@ const Signup = () => {
 
     const { alert, handleAlert } = useContext(ExamContext);
 
-    // const [alert, setAlert] = useState({
-    //     show: false,
-    //     msg: '',
-    //     type: ''
-    // }) 
-
-    // const handleAlert = (show, msg, type) => {
-    //     setAlert({
-    //         show,
-    //         msg,
-    //         type
-    //     })
-    // }
-
     return(
         <div className='auth'>
             <Navbarr />
@@ -38,7 +24,6 @@ const Signup = () => {
                 </p>
             </Alert>
 
-            {/* <Alertt /> */}
         </div>
     )
 }

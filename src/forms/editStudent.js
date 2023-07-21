@@ -136,13 +136,6 @@ const EditStudentForm = (props) => {
             </Button>
             
         </Form>
-        // <form onSubmit={ updateStudent }>
-        //     <input type='text' name='firstName' placeholder='First name' onChange={handleChange} value={props.studentDetails.firstName} />
-        //     <input type='text' name='lastName' placeholder='Last name' onChange={handleChange} value='{formData.lastName}' />
-        //     <input type='text' name='fatherName' placeholder='Father name' onChange={handleChange} value={formData.fatherName} />
-
-        //     <button type='submit'>Update Student</button>
-        // </form>
     )
 }
 

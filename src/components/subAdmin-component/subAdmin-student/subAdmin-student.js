@@ -58,8 +58,6 @@ const SubAdminStudents = () => {
             // }
     }
 
-    // const addNewStudent = (event, formData) => {
-    //         Passing event isn't allowed anym
 
     const viewStudent = async (id) => {
             navigate(`/subAdmin/student/${id}`)
